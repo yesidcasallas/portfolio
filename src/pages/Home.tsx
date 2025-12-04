@@ -10,7 +10,7 @@ export function Home ()
             </header>
             <main>
                 <section aria-label="Introducción">
-                    <img src="/user.jpg" alt="Fotografía de Yesid Casallas" />
+                    <img src="/user.webp" alt="Fotografía de Yesid Casallas" />
                     <h2>Hola, me llamo Yesid Casallas</h2>
                     <p>
                         Soy desarrollador <strong>FullStack</strong> con experiencia en tecnologías como React, Node.js y Next.js.
