@@ -1,0 +1,270 @@
+:root {
+  --bg-color: #1a1a1a;
+  --surface-color: #242424;
+  --primary-color: #646cff;
+  --primary-hover: #535bf2;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(100, 108, 255, 0.1) 0%, transparent 70%);
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #fff 30%, var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+/* Main Layout */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+/* Sections */
+section {
+  background-color: var(--surface-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+  border-color: rgba(100, 108, 255, 0.2);
+}
+
+/* Introduction Section Specifics */
+section[aria-label="Introducción"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Profile Image */
+img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--surface-color);
+  box-shadow: 0 0 0 4px var(--primary-color), 0 20px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: var(--spacing-lg);
+  transition: var(--transition);
+}
+
+img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Since footer structure in Home.tsx is direct sections inside footer, we target them */
+footer section {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+footer section:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+footer h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Contact Links */
+address ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+address {
+  font-style: normal;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  width: 100%;
+}
+
+a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Interests Tags */
+section[aria-labelledby="interests-title"] ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+section[aria-labelledby="interests-title"] li {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+  cursor: default;
+}
+
+section[aria-labelledby="interests-title"] li:hover {
+  background-color: rgba(100, 108, 255, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: var(--spacing-lg);
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  address ul {
+    align-items: center;
+  }
+
+  a {
+    width: auto;
+    justify-content: center;
+  }
+
+  section[aria-labelledby="interests-title"] ul {
+    justify-content: center;
+  }
+}
