@@ -1,0 +1,10 @@
+# Robots.txt para yesidcasallas.dev
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yesidcasallas.dev/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /assets/*.js$
+Disallow: /assets/*.css$

@@ -10,7 +10,14 @@ export function Home ()
             </header>
             <main>
                 <section aria-label="Introducción">
-                    <img src="/user.webp" alt="Fotografía de Yesid Casallas" />
+                    <img
+                        src="/user.webp"
+                        alt="Fotografía profesional de Yesid Casallas, desarrollador FullStack"
+                        width="180"
+                        height="180"
+                        fetchPriority="high"
+                        decoding="async"
+                    />
                     <h2>Hola, me llamo Yesid Casallas</h2>
                     <p>
                         Soy desarrollador <strong>FullStack</strong> con experiencia en tecnologías como React, Node.js y Next.js.
@@ -30,26 +37,28 @@ export function Home ()
                     </p>
                 </section>
             </main>
-            <footer>
-                <section aria-labelledby="contact-title">
-                    <h2 id="contact-title">Contacto</h2>
-                    <address>
-                        <ul>
-                            <li>
-                                <a href="https://www.linkedin.com/in/yesidcasallas/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/yesidcasallas/" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </li>
-                            <li>
-                                <a href="https://x.com/yesidcasallasx" target="_blank" rel="noopener noreferrer">X</a>
-                            </li>
-                        </ul>
-                    </address>
-                </section>
-                <section aria-labelledby="interests-title">
+            <footer role="contentinfo">
+                <nav aria-label="Enlaces de contacto y redes sociales">
+                    <section aria-labelledby="contact-title">
+                        <h2 id="contact-title">Contacto</h2>
+                        <address>
+                            <ul>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/yesidcasallas/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/yesidcasallas/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/yesidcasallasx" target="_blank" rel="noopener noreferrer">X</a>
+                                </li>
+                            </ul>
+                        </address>
+                    </section>
+                </nav>
+                <section aria-labelledby="interests-title" role="complementary">
                     <h2 id="interests-title">Me gusta</h2>
-                    <ul>
+                    <ul role="list">
                         <li>Programar</li>
                         <li>Aprender nuevas tecnologías</li>
                         <li>Resolver problemas</li>
