@@ -1,42 +1,24 @@
 import { useState, useEffect } from 'react'
 import { Home } from './pages/Home'
-import { LungCancerDetector } from './pages/LungCancerDetector'
-import { LungCancerProject } from './pages/LungCancerProject'
 import './App.css'
 
-export type Route = 'home' | 'detector' | 'project'
-
-function getRouteFromHash(): Route {
-  const hash = window.location.hash
-  if (hash === '#/detector') return 'detector'
-  if (hash === '#/project') return 'project'
-  return 'home'
-}
+export type Theme = 'dark' | 'light'
 
 function App() {
-  const [route, setRoute] = useState<Route>(getRouteFromHash)
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem('yc-theme')
+    if (saved === 'light' || saved === 'dark') return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(getRouteFromHash())
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
-  }, [])
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('yc-theme', theme)
+  }, [theme])
 
-  const navigate = (to: Route) => {
-    const hash = to === 'home' ? '#/' : `#/${to}`
-    window.location.hash = hash
-  }
+  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
 
-  return (
-    <>
-      {route === 'home' && <Home navigate={navigate} />}
-      {route === 'detector' && <LungCancerDetector navigate={navigate} />}
-      {route === 'project' && <LungCancerProject navigate={navigate} />}
-    </>
-  )
+  return <Home theme={theme} toggleTheme={toggleTheme} />
 }
 
 export default App
