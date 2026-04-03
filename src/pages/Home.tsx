@@ -374,8 +374,8 @@ function Contact() {
 
           <Reveal delay={100}>
             <h2 id="contact-title" className="contact__heading">
-              Construyamos algo<br />
-              <span className="text-accent">juntos</span>
+              Construyamos<br />
+              <span className="text-accent">algo juntos</span>
             </h2>
           </Reveal>
 
